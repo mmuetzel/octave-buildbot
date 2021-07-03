@@ -122,6 +122,8 @@ jobs:
           FOLDER_SUFFIX: ${{ matrix.folder-suffix }}
           MY_MINGW_PREFIX: ${{ matrix.mingw-prefix }}
         run: |
+          echo $TMP
+          echo $TEMP
           cd $(echo ${FILE7Z} | grep -o -P "octave-[0-9\-]*")${FOLDER_SUFFIX}
           ./${MY_MINGW_PREFIX}/bin/octave.bat --no-init-file --silent --no-history --eval __run_test_suite__ | tee ./test-suite.log
 
